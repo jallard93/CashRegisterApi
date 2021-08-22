@@ -6,7 +6,7 @@ app = Chalice(app_name='CashRegisterApi')
 app.log.setLevel("DEBUG")
 awslambda = boto3.client("lambda")
 
-@app.route('/cashregister/change', methods=['POST'], api_key_required=True)
+@app.route('/cashregister/change', methods=['POST'], cors=True)
 def handler():
 
     request = app.current_request.json_body
